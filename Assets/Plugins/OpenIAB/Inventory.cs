@@ -14,28 +14,27 @@ namespace OnePF {
             foreach (var entry in (List<object>)j.fields["purchaseMap"]) {
                 List<object> pair = (List<object>) entry;
                 string key = pair[0].ToString();
+#if UNITY_IOS
+                Purchase value = new Purchase((JSON) pair[1]);
+#else
                 Purchase value = new Purchase(pair[1].ToString());
+#endif
                 _purchaseMap.Add(key, value);
             }
             foreach (var entry in (List<object>) j.fields["skuMap"]) {
                 List<object> pair = (List<object>) entry;
                 string key = pair[0].ToString();
+
+                // TODO: use same cotr on all platforms. Test why it works on Android json
+#if UNITY_IOS
+                SkuDetails value = new SkuDetails((JSON) pair[1]);
+#else
                 SkuDetails value = new SkuDetails(pair[1].ToString());
+#endif
+
                 _skuMap.Add(key, value);
             }
         }
-
-#if UNITY_IOS
-		public Inventory(StoreKitProduct[] products) {
-			foreach (var product in products) {
-				string sku = OpenIAB_iOS.StoreSku2Sku(product.identifier);
-				_skuMap.Add(sku, new SkuDetails(product));
-				if (OpenIAB_iOS.IsProductPurchased(product.identifier)) {
-					_purchaseMap.Add(sku, Purchase.CreateFromSku(sku));
-				}
-			}
-		}
-#endif
 
         public override string ToString() {
             StringBuilder str = new StringBuilder();

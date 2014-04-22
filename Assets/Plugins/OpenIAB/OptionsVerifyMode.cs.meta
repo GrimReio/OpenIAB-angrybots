@@ -1,5 +1,32 @@
 fileFormatVersion: 2
-guid: 6306a4eda06298e4686e9723ce41e4da
+guid: d923727ef887bf6458bd92253a836304
+labels:
+- inapp
+- in-app
+- amazon
+- google
+- samsung
+- iap
+- Amazon
+- Google
+- Iap
+- In-app
+- Inapp
+- Samsung
+- billing
+- appstore
+- app-store
+- in
+- app
+- store
+- storekit
+- android
+- ios
+- purchase
+- onepf
+- open
+- opensource
+- source
 MonoImporter:
   serializedVersion: 2
   defaultReferences: []

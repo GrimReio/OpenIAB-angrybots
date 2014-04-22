@@ -51,7 +51,7 @@ namespace OnePF {
             _billing.queryInventory();
         }
 
-        // Sends a request to get all completed purchases and specified skus information
+        // Sends a request to get all completed purchases and specified inapp skus information
         public static void queryInventory(string[] skus) {
             _billing.queryInventory(skus);
         }
@@ -74,5 +74,17 @@ namespace OnePF {
 		public static void restoreTransactions() {
 			_billing.restoreTransactions();
 		}
+
+        public bool isDebugLog() {
+            return _billing.isDebugLog();
+        }
+
+        public void enableDebugLogging(bool enabled) {
+            _billing.enableDebugLogging(enabled);
+        }
+
+        public void enableDebugLogging(bool enabled, string tag) {
+            _billing.enableDebugLogging(enabled, tag);
+        }
     }
 }
