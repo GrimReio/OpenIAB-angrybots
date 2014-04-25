@@ -82,7 +82,6 @@ NSSet* m_skus;
 
 - (void)productsRequest:(SKProductsRequest*)request didReceiveResponse:(SKProductsResponse*)response
 {
-    NSLog(@"SKProductsRequest - RESPONSE");
     NSMutableDictionary *inventory = [[NSMutableDictionary alloc] init];
     NSMutableArray *skuMap = [[NSMutableArray alloc] init];
     NSMutableArray *purchaseMap = [[NSMutableArray alloc] init];
@@ -173,6 +172,7 @@ NSSet* m_skus;
 				break;
                 
             case SKPaymentTransactionStateRestored:
+                [self storePurchase:transaction.payment.productIdentifier];
                 UnitySendMessage(EventHandler, "OnPurchaseRestored", strdup([transaction.originalTransaction.payment.productIdentifier UTF8String]));
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 				break;

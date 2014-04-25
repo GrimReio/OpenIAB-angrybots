@@ -73,7 +73,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: com.provectus.hogtest
+  iPhoneBundleIdentifier: org.onepf.angrybots
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 675be84d04f2e804b8f79ad4779ad93b
@@ -106,7 +106,7 @@ PlayerSettings:
   iPadHighResLandscapeSplashScreen: {fileID: 0}
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  AndroidKeystoreName: D:/down/onepf.keystore
+  AndroidKeystoreName: D:/onepf.keystore
   AndroidKeyaliasName: one platform foundation production .apk key
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons:
