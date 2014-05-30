@@ -3,10 +3,8 @@ using UnityEngine;
 /**
  * Represents an in-app product's listing details.
  */
-namespace OnePF
-{
-    public class SkuDetails
-    {
+namespace OnePF {
+    public class SkuDetails {
         public string ItemType { get; private set; }
         public string Sku { get; private set; }
         public string Type { get; private set; }
@@ -15,16 +13,15 @@ namespace OnePF
         public string Description { get; private set; }
         public string Json { get; private set; }
 
-        public SkuDetails(string jsonString)
-        {
-            var json = new JSON(jsonString);
-            ItemType = json.ToString("itemType");
-            Sku = json.ToString("sku");
-            Type = json.ToString("type");
-            Price = json.ToString("price");
-            Title = json.ToString("title");
-            Description = json.ToString("description");
-            Json = json.ToString("json");
+        public SkuDetails(string jsonString) {
+			var json = new JSON(jsonString);
+			ItemType = json.ToString("itemType");
+			Sku = json.ToString("sku");
+			Type = json.ToString("type");
+			Price = json.ToString("price");
+			Title = json.ToString("title");
+			Description = json.ToString("description");
+			Json = json.ToString("json");
 
         }
 
@@ -52,8 +49,7 @@ namespace OnePF
         }
 #endif
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return string.Format("SkuDetails: type = {0}, SKU = {1}, title = {2}, price = {3}, description = {4}", ItemType, Sku, Title, Price, Description);
         }
     }
