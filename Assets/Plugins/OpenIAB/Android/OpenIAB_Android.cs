@@ -14,6 +14,7 @@ namespace OnePF
         public static readonly string STORE_AMAZON;
         public static readonly string STORE_SAMSUNG;
         public static readonly string STORE_NOKIA;
+        public static readonly string STORE_YANDEX;
 
 #if UNITY_ANDROID
         private static AndroidJavaObject _plugin;
@@ -26,6 +27,7 @@ namespace OnePF
                 STORE_AMAZON = "STORE_AMAZON";
                 STORE_SAMSUNG = "STORE_SAMSUNG";
                 STORE_NOKIA = "STORE_NOKIA";
+                STORE_YANDEX = "STORE_YANDEX";
                 return;
             }
 
@@ -39,6 +41,7 @@ namespace OnePF
                 STORE_AMAZON = pluginClass.GetStatic<string>("STORE_AMAZON");
                 STORE_SAMSUNG = pluginClass.GetStatic<string>("STORE_SAMSUNG");
                 STORE_NOKIA = pluginClass.GetStatic<string>("STORE_NOKIA");
+                STORE_YANDEX = pluginClass.GetStatic<string>("STORE_YANDEX");
             }
         }
 
@@ -99,7 +102,7 @@ namespace OnePF
             }
         }
 
-        public void init(Dictionary<string, string> storeKeys=null)
+        public void init(Dictionary<string, string> storeKeys = null)
         {
             if (!IsDevice()) return;
 
@@ -163,7 +166,7 @@ namespace OnePF
             AndroidJNI.CallVoidMethod(_plugin.GetRawObject(), methodId, args);
         }
 
-        public void purchaseProduct(string sku, string developerPayload="")
+        public void purchaseProduct(string sku, string developerPayload = "")
         {
             if (!IsDevice())
             {
@@ -174,7 +177,7 @@ namespace OnePF
             _plugin.Call("purchaseProduct", sku, developerPayload);
         }
 
-        public void purchaseSubscription(string sku, string developerPayload="")
+        public void purchaseSubscription(string sku, string developerPayload = "")
         {
             if (!IsDevice())
             {
@@ -215,11 +218,13 @@ namespace OnePF
             _plugin.Call("enableDebugLogging", enabled, tag);
         }
 #else
-		static OpenIAB_Android() {
+		static OpenIAB_Android() 
+        {
             STORE_GOOGLE = "STORE_GOOGLE";
             STORE_AMAZON = "STORE_AMAZON";
             STORE_SAMSUNG = "STORE_SAMSUNG";
             STORE_NOKIA = "STORE_NOKIA";
+            STORE_YANDEX = "STORE_YANDEX";
 		}
 #endif
     }
